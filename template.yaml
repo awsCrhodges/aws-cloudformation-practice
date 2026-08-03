@@ -1,0 +1,24 @@
+AWSTemplateFormatVesion: "2010-09-09"
+Description: "AWS practice project for CloudFormation"
+Parameters:
+
+
+
+Resources:
+
+  PracticeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration:
+        Status: Enabled
+
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+
+Outputs:
+  PracticeBucketName:
+    Description: Name of the created S3 Bucket
+    Value: !Ref PracticeBucket
