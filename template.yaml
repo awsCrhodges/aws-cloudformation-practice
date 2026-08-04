@@ -28,7 +28,17 @@ Resources:
                 - lambda.amazonaws.CloudFormation
             Action:
               - sts:AssumeRole
-
+      Policies:
+        - PolicyName: LambdaLoggingPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
 Outputs:
   PracticeBucketName:
     Description: Name of the created S3 Bucket
