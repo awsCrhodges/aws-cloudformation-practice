@@ -1,3 +1,5 @@
 AWS CloudFormation Practice
 
-AWS CloudFormation practice repository for Lambda, IAM, CloudFormation, and Git demonstrations. 
+A small CloudFormation project used to practice AWS infrastructure, YAML, and GIT workflows.
+
+Added an SQS queue for asynchronous processing.
