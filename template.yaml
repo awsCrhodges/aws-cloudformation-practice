@@ -1,9 +1,5 @@
 AWSTemplateFormatVesion: "2010-09-09"
 Description: "AWS practice project for CloudFormation"
-Parameters:
-
-
-
 Resources:
 
   PracticeBucket:
@@ -17,6 +13,21 @@ Resources:
         IgnorePublicAcls: true
         BlockPublicPolicy: true
         RestrictPublicBuckets: true
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CloudFormationLambdaRole
+
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.CloudFormation
+            Action:
+              - sts:AssumeRole
 
 Outputs:
   PracticeBucketName:
